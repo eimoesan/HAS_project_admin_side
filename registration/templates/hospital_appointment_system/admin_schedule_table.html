@@ -1,0 +1,24 @@
+{% extends 'hospital_appointment_system/admin_dashboard.html' %}
+{% block content %}
+    <div class = "container">
+    <h4>Schedule result</h4>
+    <table class = "table">
+    <tr>
+        <th>Doctor Name</th>
+        <th>Schedule Date</th>
+        <th>Schedule Start Time</th>
+        <th>Schedule End Time</th>
+        <th>Max Patient</th>
+    </tr>
+    {% for res in result %}
+    <tr>
+        <td>{{ res.doctor_id.doctor_name }}</td>
+        <td>{{ res.schedule_date }}</td>
+        <td>{{ res.schedule_start_time }}</td>
+        <td>{{ res.schedule_end_time }}</td>
+        <td>{{ res.maxpatient }}</td>
+    </tr>
+    {% endfor %}
+    </table> <br/>
+</div>
+{% endblock content %}

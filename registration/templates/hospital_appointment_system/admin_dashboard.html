@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<p id="today"></p>
+<p id="today_day"></p>
+<h4>Status</h4>
+
+<button class="btn btn-primary" onclick="location.href='{% url 'retreive_admin_patient_appointments' %}'"> {{count.0}} Patients </button>
+<button class="btn btn-primary" onclick="location.href='{% url 'retreive_admin_doctor_schedules' %}'">{{count.1}} Doctors </button>
+{% block content %}
+
+{% endblock content %}
+<script>
+const event1 = new Date();
+const options1 = {
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+};
+const event2 = new Date();
+const options2 = {
+  weekday: 'long',
+};
+console.log(event1.toLocaleDateString('en-UK', options1));
+document.getElementById("today").innerHTML = event1.toLocaleDateString('en-UK', options1);
+
+console.log(event2.toLocaleDateString('en-UK', options2));
+document.getElementById("today_day").innerHTML = event2.toLocaleDateString('en-UK', options2);
+
+</script>
+</body>
+</html>

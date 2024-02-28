@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<h4> Schedule</h4>
+<div class="container" style="width: 50%;">
+    <form method="GET" action="{% url 'retreive_admin_schedule_filterby_docname' %}">
+        {% csrf_token %}
+        <div class="input-group mb-3" >
+            <input type="search" id="doctor_name" name="doctor_name" class="form-control" placeholder="Search by doctor name..." aria-label="Search by doctor name..." >
+            <div class="input-group-append">
+                <button class="btn btn-outline-primary" type="submit" >Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="container">
+    <p>{{message}}</p>
+    <h4>Schedule</h4>
+    <table class = "table">
+    <tr>
+        <th>Schedule ID</th>
+        <th>Doctor Name</th>
+        <th>Schedule Date</th>
+        <th>Schedule Start Time</th>
+        <th>Schedule End Time</th>
+        <th>Max Patient</th>
+    </tr>
+    {% for schedule in schedule_table %}
+    <tr>
+        <td>{{ schedule.schedule_id }}</td>
+        <td>{{ schedule.doctor_id }}</td>
+        <td>{{ schedule.schedule_date }}</td>
+        <td>{{ schedule.schedule_start_time }}</td>
+        <td>{{ schedule.schedule_end_time }}</td>
+        <td>{{ schedule.maxpatient }}</td>
+    </tr>
+    {% endfor %}
+    </table> <br/>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'hospital_appointment_system/admin_dashboard.html' %}
+{% block content %}
+    <div class = "container">
+    <h4>Appointment</h4>
+    <table class = "table">
+    <tr>
+        <th>Appointment ID</th>
+        <th>Doctor Name</th>
+        <th>Patient Name</th>
+        <th>Appointment Date</th>
+        <th>Appointment Start Time</th>
+        <th>Appointment End Time</th>
+        <th>Token No</th>
+        <th>Status</th>
+    </tr>
+    {% for appointment in appointment_table %}
+    <tr>
+        <td>{{ appointment.appointment_id }}</td>
+        <td>{{ appointment.doctor_id }}</td>
+        <td>{{ appointment.patient_id }}</td>
+        <td>{{ appointment.appoint_date }}</td>
+        <td>{{ appointment.appoint_start_time }}</td>
+        <td>{{ appointment.appoint_end_time }}</td>
+        <td>{{ appointment.token }}</td>
+        <td>{{ appointment.history_id }}</td>
+    </tr>
+    {% endfor %}
+    </table> <br/>
+</div>
+
+{% endblock content %}
